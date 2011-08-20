@@ -3,7 +3,7 @@
 Plugin Name: Contact Us
 Plugin URI: http://wordpress.org/extend/plugins/contact-us/
 Description: Adds the ability to enter business contact information, business hours, business location, etc and output the details in your posts, pages or templates.
-Version: 1.0
+Version: 1.4
 Author: EON Media Group
 Author URI: http://eonmediagroup.com
 */
@@ -92,12 +92,16 @@ if ( ! class_exists( 'ContactUs' ) )
 			if( !empty($heading) ){
 			  $header = "{$heading_open_tag}{$heading}{$heading_close_tag}";
 			}
-			if( $nl2br === true ){
+			if( $nl2br === true || $nl2br === 'true' ){
 			  $is_xhtml = true;
 			  $value = nl2br($value, $is_xhtml);
 			}
 			$info = "{$header}{$before}{$value}{$after}";
-			echo $info;
+			if ( $echo ) {
+				echo $info;
+			} else {
+				return $info;
+			}
 		}
 		
 		function value( $type = false )
@@ -133,12 +137,18 @@ if ( ! class_exists( 'ContactUs' ) )
 		{
 			extract( shortcode_atts( array(
 				'type' => false,
-				'include' => false
+				'include' => false,
+				'heading' => '',
+				'heading_open_tag' => '<h4>',
+				'heading_close_tag' => '</h4>',
+				'nl2br' => false,
+				'before' => '',
+				'after' => ''
 			), $atts ) );
 			if ( 'form' == $type ) {
 				return $this->form( $include );
 			}
-			return contact_us( $type, false, false, false );
+			return contact_us( $type, $heading, $heading_open_tag, $heading_close_tag, $nl2br, $before, $after );
 		} 
 		
 		function form( $include = false )
@@ -294,9 +304,13 @@ if ( ! class_exists( 'ContactUs' ) )
 	}
 	$contactUs = new ContactUs();
 	if ( isset( $contactUs ) ) {
-		function contact_us( $t = false, $b = '', $a = '', $e = true ){
+		function contact_us( $t = false, $h = '', $ho = '<h4>', $hc = '</h4>', $nl2br = false, $b = '', $a = '', $e = true ){
 			return apply_filters( 'contact_us', array(
 				'type' => $t,
+				'heading' => $h,
+				'heading_open_tag' => $ho,
+				'heading_close_tag' => $hc,
+				'nl2br' => $nl2br,
 				'before' => $b,
 				'after' => $a,
 				'echo' => $e
