@@ -4,7 +4,7 @@ Donate link: http://wordpress.org/extend/plugins/contact/
 Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form
 Requires at least: 2.8.2
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 Adds the ability to easily enter and display contact information.
 
@@ -12,7 +12,19 @@ Adds the ability to easily enter and display contact information.
 
 *Contact Us* adds the ability to enter business contact information, business hours, business location, etc and output the details in your posts, pages or templates.
 
-Use the shortcode `[contact_us type="phone"]` to display any of the contact information, or use the function call `<?php if (function_exists('contact_us')) { contact_us('phone'); } ?>`.
+Use the shortcode `[contact_us type="phone" heading="Corporate Phone Number"]` to display any of the contact information, or use the function call `<?php if (function_exists('contact_us')) { contact_us('phone'); } ?>`.
+
+**Shortcode Options:**
+
+`
+* type => false
+* heading => ''
+* heading_open_tag => '<h4>'
+* heading_close_tag => '</h4>'
+* nl2br => false
+* before => ''
+* after => ''
+`
 
 Once you have defined a contact email address, use the shortcode `[contact_us type="form"]` to output the contact form.
 
@@ -37,7 +49,7 @@ Navigate to the settings page by clicking on `Settings` on the left hand menu, a
 
 You can use the following function call to output information in your templates:
 
-<?php if (function_exists('contact_us')) { contact_us('fax'); } ?>
+`<?php if (function_exists('contact_us')) { contact_us('fax'); } ?>`
 
 = What contact information can I store? =
 
@@ -47,7 +59,7 @@ Current available contact fields are: `name`, `phone`, `fax`, `mobile`, `email`,
 
 The fourth parameter passed to `contact_us()` determines whether the value is returned, by setting the value to false.
 
-`$phone = contact_us('phone', '<b>', '</b>', false);
+`<?php $phone = contact_us('phone', '<b>', '</b>', false); ?>`
 
 The above code will fetch the phone number stored and wrap the response in bold tags.
 

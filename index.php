@@ -77,20 +77,27 @@ if ( ! class_exists( 'ContactUs' ) )
 		{
 			extract( shortcode_atts( array(
 				'type' => false,
+				'heading' => '',
+				'heading_open_tag' => '<h4>',
+				'heading_close_tag' => '</h4>',
+				'nl2br' => false,
 				'before' => '',
-				'after' => '',
-				'echo' => true
+				'after' => ''
 			), $args ) );
 			$value = $this->value( $type );
 			if ( strlen( $value ) == 0 ) {
 				return;
 			}
-			$info = $before.$value.$after;
-			if ( $echo ) {
-				echo $info;
-			} else {
-				return $info;
+			$header = '';
+			if( !empty($heading) ){
+			  $header = "{$heading_open_tag}{$heading}{$heading_close_tag}";
 			}
+			if( $nl2br === true ){
+			  $is_xhtml = true
+			  $value = nl2br($value, $is_xhtml);
+			}
+			$info = "{$header}{$before}{$value}{$after}";
+			echo $info;
 		}
 		
 		function value( $type = false )
