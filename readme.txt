@@ -1,7 +1,7 @@
 === Contact Us ===
 Contributors: EONMediaGroup
 Donate link: http://wordpress.org/extend/plugins/contact/
-Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form
+Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form, captcha, recaptcha
 Requires at least: 2.8.2
 Tested up to: 3.2.1
 Stable tag: 1.2
