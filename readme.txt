@@ -4,7 +4,7 @@ Donate link: http://wordpress.org/extend/plugins/contact/
 Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form, captcha, recaptcha
 Requires at least: 2.8.2
 Tested up to: 3.2.1
-Stable tag: 1.4
+Stable tag: 1.5
 
 Adds the ability to easily enter and display contact information.
 
@@ -57,9 +57,9 @@ Current available contact fields are: `name`, `phone`, `fax`, `mobile`, `email`,
 
 = How do you fetch contact information without outputting the value? =
 
-The fourth parameter passed to `contact_us()` determines whether the value is returned, by setting the value to false.
+The last parameter passed to `contact_us()` determines whether the value is returned, by setting the value to false.
 
-`<?php $phone = contact_us('phone', '<b>', '</b>', false); ?>`
+`<?php $phone = contact_us('phone', '', '', '', true, '<b>', '</b>', false); ?>`
 
 The above code will fetch the phone number stored and wrap the response in bold tags.
 
@@ -84,6 +84,8 @@ Navigate to the settings page: `Settings > Contact Us` and select to enable the 
 
 == Changelog ==
 
+= 1.5 =
+* Fixed readme to reflect rendering
 = 1.4 =
 * Fixed bugs in the shortcode execution
 = 1.3 =

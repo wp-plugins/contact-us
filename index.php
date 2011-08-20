@@ -3,7 +3,7 @@
 Plugin Name: Contact Us
 Plugin URI: http://wordpress.org/extend/plugins/contact-us/
 Description: Adds the ability to enter business contact information, business hours, business location, etc and output the details in your posts, pages or templates.
-Version: 1.4
+Version: 1.5
 Author: EON Media Group
 Author URI: http://eonmediagroup.com
 */
