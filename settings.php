@@ -69,6 +69,41 @@
 				</td>
 			</tr>
 		</table>
+		
+		<hr />
+		
+		<table class="form-table">
+			<tr valign="top">
+				<th>
+					<?php _e( 'reCaptcha' ); ?>
+					<p><a href="http://www.google.com/recaptcha/whyrecaptcha" target="_blank">Signup</a> for an account and keys.
+				</th>
+				<td>
+				  <fieldset>
+				    <legend class="screen-reader-text"><span><?php _e( 'reCaptcha' ); ?></span></legend> 
+				    <label title='Enabled'><input type="radio" <?php if ( !array_key_exists( 'recaptcha_enable', $this->options ) || ( array_key_exists( 'recaptcha_enable', $this->options ) && $this->options['recaptcha_enable'] == 'false' ) ) { echo 'checked="true"'; } ?> id="" name="<?php echo $this->tag; ?>[recaptcha_enable]" value="false" /> <span><?php _e( 'Disabled' ); ?></span></label><br /> 
+				    <label title='Enabled'><input type="radio" <?php if ( array_key_exists( 'recaptcha_enable', $this->options ) && $this->options['recaptcha_enable'] == 'true' ) { echo 'checked="true"'; } ?> id="" name="<?php echo $this->tag; ?>[recaptcha_enable]" value="true" /> <span><?php _e( 'Enabled' ); ?></span></label>
+				  </fieldset>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th>
+					<label for="<?php echo $this->tag; ?>[recaptcha_private_key]"><?php _e( 'Private Key' ); ?></label>
+				</th>
+				<td>
+					<input type="text" class="regular-text" value="<?php if ( array_key_exists( 'recaptcha_private_key', $this->options ) ) { esc_html_e( $this->options['recaptcha_private_key'] ); } ?>" id="<?php echo $this->tag; ?>[recaptcha_private_key]" name="<?php echo $this->tag; ?>[recaptcha_private_key]"/>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th>
+					<label for="<?php echo $this->tag; ?>[recaptcha_public_key]"><?php _e( 'Public Key' ); ?></label>
+				</th>
+				<td>
+					<input type="text" class="regular-text" value="<?php if ( array_key_exists( 'recaptcha_public_key', $this->options ) ) { esc_html_e( $this->options['recaptcha_public_key'] ); } ?>" id="<?php echo $this->tag; ?>[recaptcha_public_key]" name="<?php echo $this->tag; ?>[recaptcha_public_key]"/>
+				</td>
+			</tr>
+		</table>
+		
 		<p class="submit">
 			<input type="submit" name="Submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" />
 		</p>

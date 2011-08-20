@@ -93,7 +93,7 @@ if ( ! class_exists( 'ContactUs' ) )
 			  $header = "{$heading_open_tag}{$heading}{$heading_close_tag}";
 			}
 			if( $nl2br === true ){
-			  $is_xhtml = true
+			  $is_xhtml = true;
 			  $value = nl2br($value, $is_xhtml);
 			}
 			$info = "{$header}{$before}{$value}{$after}";
@@ -177,6 +177,13 @@ if ( ! class_exists( 'ContactUs' ) )
 							$value = trim( wp_kses( stripslashes( $value ), array() ) );
 					}
 					$contact[$key] = $value;
+				}
+				if($this->options['recaptcha_enable'] === 'true'){
+				  require_once(WP_PLUGIN_DIR.'/contact-us/recaptchalib-1.11.php');
+          $resp = recaptcha_check_answer($this->options['recaptcha_private_key'],$_SERVER["REMOTE_ADDR"],$_POST["recaptcha_challenge_field"],$_POST["recaptcha_response_field"]);
+				  if (!$resp->is_valid){
+				    $this->messages['error'][] = __( 'reCAPTCHA error: ' ) . $resp->error;
+				  }
 				}
 				if ( count( $this->messages['error'] ) == 0 ) {
 					if ( $this->is_blacklisted( $contact ) ) {

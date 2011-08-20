@@ -4,7 +4,7 @@ Donate link: http://wordpress.org/extend/plugins/contact/
 Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form
 Requires at least: 2.8.2
 Tested up to: 3.2.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 Adds the ability to easily enter and display contact information.
 
@@ -73,12 +73,21 @@ This file should be placed within your theme directory and should include the pr
 
 We suggest you use the `contact.php` file used by the plugin as a starting point / template.
 
+= How do I enable reCaptcha? =
+
+Navigate to the settings page: `Settings > Contact Us` and select to enable the reCaptcha and fill out the appropriate keys.
+
 == Screenshots ==
 
 1. The contact us settings page.
+2. The reCaptcha options.
 
 == Changelog ==
 
+= 1.2 =
+* Added reCaptcha support
+= 1.1 =
+* Added extra shortcode options
 = 1.0 =
 * Added new fields, and converted into a separate plugin
 = 0.7.1 =

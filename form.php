@@ -32,6 +32,18 @@
 	<p class="contact_message">
 		<textarea tabindex="4" rows="10" cols="100%" id="contact_message" name="contact[message]"><?php if ( isset( $contact['message'] ) ) { esc_html_e($contact['message']); } ?></textarea>
 	</p>
+<?php if($this->options['recaptcha_enable'] === 'true' && !empty($this->options['recaptcha_public_key'])){ ?>
+	<p class="contact_recaptcha">
+	<!-- YOUR RECAPTCHA CODE GOES HERE -->
+  <script type="text/javascript" src="http://api.recaptcha.net/challenge?k=<?php echo $this->options['recaptcha_public_key']?>"></script>
+  <noscript>
+    <iframe src="http://api.recaptcha.net/noscript?k=<?php echo $this->options['recaptcha_public_key']?>" height="300" width="500" frameborder="0"></iframe>
+    <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+    <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+  </noscript>
+  <!-- END RECAPTCHA CODE -->
+  </p>
+<?php } ?>
 	<p class="contact_submit">
 		<input type="submit" value="<?php _e( 'Send Message' ); ?>" tabindex="5" id="submit" name="contact[submit]" />
 	</p>
