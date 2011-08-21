@@ -30,7 +30,7 @@
 		</label>
 	</p>
 	<p class="contact_message">
-		<textarea tabindex="4" rows="10" cols="100%" id="contact_message" name="contact[message]"><?php if ( isset( $contact['message'] ) ) { esc_html_e($contact['message']); } ?></textarea>
+		<textarea tabindex="4" rows="10" cols="60" id="contact_message" name="contact[message]"><?php if ( isset( $contact['message'] ) ) { esc_html_e($contact['message']); } ?></textarea>
 	</p>
 <?php if($this->options['recaptcha_enable'] === 'true' && !empty($this->options['recaptcha_public_key'])){ ?>
 	<p class="contact_recaptcha">
@@ -38,7 +38,7 @@
   <script type="text/javascript" src="http://api.recaptcha.net/challenge?k=<?php echo $this->options['recaptcha_public_key']?>"></script>
   <noscript>
     <iframe src="http://api.recaptcha.net/noscript?k=<?php echo $this->options['recaptcha_public_key']?>" height="300" width="500" frameborder="0"></iframe>
-    <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+    <textarea name="recaptcha_challenge_field" rows="3" cols="60"></textarea>
     <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
   </noscript>
   <!-- END RECAPTCHA CODE -->

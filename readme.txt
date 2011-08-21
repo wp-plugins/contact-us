@@ -4,7 +4,7 @@ Donate link: http://wordpress.org/extend/plugins/contact/
 Tags: contact, contact us, business, global, details, options, info, phone, fax, mobile, email, address, form, captcha, recaptcha
 Requires at least: 2.8.2
 Tested up to: 3.2.1
-Stable tag: 1.5
+Stable tag: 1.6
 
 Adds the ability to easily enter and display contact information.
 
@@ -84,6 +84,8 @@ Navigate to the settings page: `Settings > Contact Us` and select to enable the 
 
 == Changelog ==
 
+= 1.6 =
+* Fixed form to validate against W3C
 = 1.5 =
 * Fixed readme to reflect rendering
 = 1.4 =
